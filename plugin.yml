@@ -1,0 +1,8 @@
+---
+name: RandomDrops
+author: OguzhanUmutlu
+version: 1.0.0
+description: Lets you change drops in your server!
+main: OguzhanUmutlu\RandomDrops\Main
+api: 3.0.0
+...
