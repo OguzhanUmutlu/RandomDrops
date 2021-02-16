@@ -28,6 +28,9 @@ class Main extends PluginBase implements Listener {
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
   }
   public function onBreak(BlockBreakEvent $e) {
+    if(!$e->getBlock()->isCompatibleWithTool($e->getItem())) {
+      return;
+    }
     $blockid = $e->getBlock()->getId();
     $blockmeta = $e->getBlock()->getDamage();
     if($e->getPlayer()->getGamemode() != 0) {
