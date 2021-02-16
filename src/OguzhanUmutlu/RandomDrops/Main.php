@@ -36,7 +36,7 @@ class Main extends PluginBase implements Listener {
     if($e->getPlayer()->getGamemode() != 0) {
       return;
     }
-    if(!$this->table->getNested($blockid."_".$blockmeta)) {
+    if(!$this->table->getNested($blockid.":".$blockmeta)) {
       $cleared = [];
       foreach($this->config->getNested("droppingitems") as $x) {
         if(!in_array($x, $this->used)) {
@@ -45,13 +45,13 @@ class Main extends PluginBase implements Listener {
       }
       $randval = $cleared[rand(0, count($cleared)-1)];
       $es = $this->table->getNested("tables");
-      array_push($es, $blockid."_".$blockmeta);
+      array_push($es, $blockid.":".$blockmeta);
       $this->table->setNested("tables", $es);
-      $this->table->setNested($blockid."_".$blockmeta, $randval);
+      $this->table->setNested($blockid.":".$blockmeta, $randval);
       $this->table->save();
       $this->table->reload();
     }
-    $imp = explode("_", $this->table->getNested($blockid."_".$blockmeta));
+    $imp = explode(":", $this->table->getNested($blockid.":".$blockmeta));
     $item = Item::get($imp[0], $imp[1]);
     $e->setDrops([$item]);
   }
