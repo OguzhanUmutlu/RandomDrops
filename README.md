@@ -21,3 +21,5 @@ Enter this web site: https://github.com/OguzhanUmutlu/RandomDrops/issues
 # Changelog
 
 v1.0.0 - Added main things.
+
+v1.0.1 - Added isCompatibleWithTool function
